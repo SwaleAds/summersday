@@ -1,0 +1,249 @@
+<!-- REGISTER FUNCTIONS AND SCRIPTS -->
+<?php
+osc_enqueue_style('style', osc_current_web_theme_url('style.css'));
+osc_enqueue_style('tabs', osc_current_web_theme_url('tabs.css'));
+osc_enqueue_style('jquery-ui-datepicker', osc_assets_url('css/jquery-ui/jquery-ui.css'));
+
+osc_register_script('jquery-uniform', osc_current_web_theme_js_url('jquery.uniform.js'), 'jquery');
+osc_register_script('global', osc_current_web_theme_js_url('global.js'));
+
+osc_enqueue_script('jquery');
+osc_enqueue_script('jquery-ui');
+osc_enqueue_script('jquery-uniform');
+osc_enqueue_script('tabber');
+osc_enqueue_script('global');
+
+osc_run_hook('header');
+
+FieldForm::i18n_datePicker();
+
+
+
+?>
+
+<!-- COMMON HEAD -->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+
+<title><?php echo meta_title() ; ?></title>
+<meta name="title" content="<?php echo osc_esc_html(meta_title()); ?>" />
+<?php if( meta_description() != '' ) { ?>
+<meta name="description" content="<?php echo osc_esc_html(meta_description()); ?>" />
+<?php } ?>
+<?php if( meta_keywords() != '' ) { ?>
+<meta name="keywords" content="<?php echo osc_esc_html(meta_keywords()); ?>" />
+<?php } ?>
+<?php if( osc_get_canonical() != '' ) { ?>
+<!-- canonical -->
+<link rel="canonical" href="<?php echo osc_get_canonical(); ?>"/>
+<!-- /canonical -->
+<?php } ?>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="Fri, Jan 01 1970 00:00:00 GMT" />
+
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- favicon -->
+<link rel="shortcut icon" href="<?php echo osc_current_web_theme_url('favicon/favicon-48.png'); ?>">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo osc_current_web_theme_url('favicon/favicon-144.png'); ?>">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo osc_current_web_theme_url('favicon/favicon-114.png'); ?>">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo osc_current_web_theme_url('favicon/favicon-72.png'); ?>">
+<link rel="apple-touch-icon-precomposed" href="<?php echo osc_current_web_theme_url('favicon/favicon-57.png'); ?>">
+<!-- /favicon -->
+
+<link href="<?php echo osc_current_web_theme_url('js/jquery-ui/jquery-ui-1.10.2.custom.min.css') ; ?>?<?php echo rand(0, pow(10, 5)); ?>" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var strapclass = window.strapclass || {};
+    strapclass.base_url = '<?php echo osc_base_url(true); ?>';
+    strapclass.langs = <?php echo json_encode($js_lang); ?>
+</script>
+
+
+
+<!-- Bootstrap CORE -->
+	 <link href="<?php echo osc_current_web_theme_url('css/bootstrap.css'); ?>" rel="stylesheet">
+    <link href="<?php echo osc_current_web_theme_url('css/bootstrap-responsive.min.css'); ?>" rel="stylesheet">
+	<script src="<?php echo osc_current_web_theme_url('js/bootstrap.min.js'); ?>"</script>
+	
+	<link href="<?php echo osc_current_web_theme_url('css/theme.css'); ?>" rel="stylesheet">
+ 
+ <!-- LOAD THE carousel.css file for the homepage -->
+ <link href="<?php echo osc_current_web_theme_url('css/carousel.css'); ?>" rel="stylesheet">
+     <script src="<?php echo osc_current_web_theme_url('js/html5shiv.js'); ?>"></script>
+      <script src="<?php echo osc_current_web_theme_url('js/respond.min.js'); ?>"></script>
+	
+    <!-- Font awesome - iconic font with IE7 support --> 
+	<link href="<?php echo osc_current_web_theme_url('css/font-awesome.css'); ?>" rel="stylesheet">
+	<link href="<?php echo osc_current_web_theme_url('css/font-awesome-ie7.css'); ?>" rel="stylesheet">
+    <link href="<?php echo osc_current_web_theme_url('css/font-awesome.min.css'); ?>" rel="stylesheet">
+   
+   <!-- THEME CORE STARPCLASS -->
+	<link href="<?php echo osc_current_web_theme_url('css/starpclass.css'); ?>" rel="stylesheet">
+	<link href="<?php echo osc_current_web_theme_url('css/main.css') ; ?>?<?php echo rand(0, pow(10, 5)); ?>" rel="stylesheet" type="text/css" />
+		<link href="<?php echo osc_current_web_theme_url('css/index.css'); ?>" rel="stylesheet">
+		<link href="<?php echo osc_current_web_theme_url('css/google-code-prettify/prettify.css'); ?>" rel="stylesheet">
+
+	 
+	 <!-- Load The Google Fonts -->
+	 <link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
+	 
+	 <!-- Load Latest Version of JQuery -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	 
+	 <link href="<?php echo osc_current_web_theme_url('strapclasses/Bootstrap-Image-Gallery-3.1.0/css/bootstrap-image-gallery.min.css'); ?>" rel="stylesheet">
+
+	 
+<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="<?php echo osc_current_web_theme_url('strapclasses/Bootstrap-Image-Gallery-3.1.0/js/demo.js'); ?>"></script>
+<script src="<?php echo osc_current_web_theme_url('strapclasses/Bootstrap-Image-Gallery-3.1.0/js/demo.js'); ?>"></script>
+
+<!-- Load the Magic JS -->
+     <script src="<?php echo osc_current_web_theme_url('js/affix.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/transition.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/carousel.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/collapse.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/popover.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/alert.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/tooltip.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/buttons.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/modal.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/scrollspy.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/delete_user.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/jquery.hotkeys.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/tests/vendor/jquery.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/Gruntfile.js'); ?>"></script>
+	 <script src="<?php echo osc_current_web_theme_url('js/tab.js'); ?>"></script>
+			  <!-- Load the Magic END -->
+			  
+ <script src="<?php echo osc_current_web_theme_url('js/jquery.magnific-popup.min.js'); ?>"></script>
+  <script src="<?php echo osc_current_web_theme_url('js/jquery.magnific-popup.js'); ?>"></script>
+
+<script type="text/javascript">
+        //<![CDATA[
+        $( function() {
+            var $window = $( window );
+            var $splash = $( '#splash' );
+            var $settings = $( '#settings' );
+            var $selects = $settings.find( '[data-property]' );
+            var $hide = $settings.find( '.hide' );
+            var $getCode = $settings.find( '.get-code' );
+            var $toggle = $settings.find( '.toggle' );
+            
+            $( '#album' ).jGallery( {
+                'autostart': true,
+                'canClose': false,
+                'canResize': true,
+                'backgroundColor': '#000',
+                'textColor': '#fff',
+                'thumbnails': true,
+                'thumbnailsFullScreen': true,
+                'thumbType': 'image', // [ image | square | number ]
+                'thumbnailsPosition': 'bottom', // [ top | bottom | left | right ]
+                'thumbWidth': 100, //px
+                'thumbHeight': 100, //px
+                'thumbWidthOnFullScreen': 100, //px
+                'thumbHeightOnFullScreen': 100, //px
+                'showEffect': 'rotate-room-right', // [ rotate-room-right | rotate-room-left | rotate-room-up | rotate-room-down ] http://jgallery.jakubkowalczyk.pl/demo.php?transitions
+                'hideEffect': 'rotate-room-right', //[ rotate-room-right | rotate-room-left | rotate-room-up | rotate-room-down ] http://jgallery.jakubkowalczyk.pl/demo.php?transitions
+                'showTimingFunction': 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+                'hideTimingFunction': 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+                'showDuration': '0.5s',
+                'hideDuration': '0.5s',
+                'zoomSize': '100%', // [ fitToWindow | 100% ]
+                'title': true,
+                'titleShowEffect': 'fade',
+                'titleHideEffect': 'fade',
+                'titleShowTimingFunction': 'ease', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+                'titleHideTimingFunction': 'ease', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+                'titleShowDuration': '0.5s',
+                'titleHideDuration': '0.5s',
+                'slideshow': true,
+                'slideshowAutostart': false,
+                'slideshowCanRandom': true,
+                'slideshowRandom': false,
+                'slideshowRandomAutostart': false,
+                'disabledOnIE7AndOlder': true,
+                'slideshowInterval': '8s',
+                'preloadAll': false
+            } );
+            
+            function rand( min, max ) {
+                return Math.floor( Math.random() * ( max - min + 1 ) ) + min;
+            }
+            
+            function toggle() {
+                $settings.is( '.hidden' ) ? show() : hide();
+            }
+            
+            function hide() {
+                $settings.addClass( 'hidden' );
+                $window.trigger( 'resize' );
+            }
+            
+            function show() {
+                $settings.removeClass( 'hidden' );
+                $window.trigger( 'resize' );
+            }
+
+            function change() {
+                var $this = $( this );
+                var $option = $this.find( ':selected' );
+                var objOptions = {};
+
+                if ( $option.is( ':first-child' ) ) {
+                    return;
+                }
+                objOptions[ $this.attr( 'data-property' ) ] = $option.html() || $this.val();
+                $( '#album' ).jGallery( objOptions );
+                if ( $this.is( '[data-change-photo]' ) ) {
+                    getRandomThumbLink().trigger( 'click' );
+                }
+                hideSplash();
+            }
+            
+            function getCode() {
+                var objOptions = {};
+                
+                $selects.each( function() {
+                    var $this = $( this );
+                    var $option = $this.find( ':selected' );
+                    
+                    objOptions[ $this.attr( 'data-property' ) ] = $option.html() || $this.val();
+                    if ( objOptions[ $this.attr( 'data-property' ) ] === '' ) {
+                        delete objOptions[ $this.attr( 'data-property' ) ];
+                    }
+                } );
+                $splash.show().find( '.content' ).html( '\
+                    $( "#gallery" ).jGallery(\
+                        ' + JSON.stringify( objOptions ).replace( /(,|{)/g, '$1<br>&nbsp;&nbsp;&nbsp;&nbsp;' ).replace( /}/g, '<br>}' ) + '\
+                    );\
+                ');
+            }
+            
+            function hideSplash() {
+                $splash.hide();
+            }
+            
+            function getRandomThumbLink() {
+                var $a = $( '.jgallery .thumbnails .album.active a:not(.active)' );
+                
+                return $a.eq( rand( 0, $a.length - 1 ) );
+            }
+
+            
+            $selects.on( {
+                change: change
+            } );
+            $toggle.on( 'click', toggle );
+            $hide.on( 'click', hide );
+            $getCode.on( 'click', getCode );
+            $splash.find( '.close' ).on( 'click', hideSplash );
+        } );
+        //]]>
+    </script>
+</head>
